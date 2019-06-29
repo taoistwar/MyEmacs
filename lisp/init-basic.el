@@ -1,13 +1,12 @@
 (fset 'yes-or-no-p 'y-or-n-p) ;; 使用y/n替换yes/no
 
 
-;; (load-theme 'wombat t) ;; 设置主题颜色
+(load-theme 'doom-nord-light t) ;; 设置主题颜色
 
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))     ;;菜单栏
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))     ;;工具栏
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1)) ;;滚动条
 (setq initial-frame-alist (quote ((fullscreen . maximized)))) ;;启动全屏
-
 
 
 (show-paren-mode t)    ;;显示匹配的括号 
