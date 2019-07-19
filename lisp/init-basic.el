@@ -1,5 +1,17 @@
 (fset 'yes-or-no-p 'y-or-n-p) ;; 使用y/n替换yes/no
 
+;;设置默认读入文件编码
+(prefer-coding-system 'utf-8)
+
+;;设置默认编码
+(setq default-buffer-file-coding-system 'utf-8)
+(set-language-environment "UTF-8")
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-clipboard-coding-system 'utf-8)
+(set-buffer-file-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(modify-coding-system-alist 'process "*" 'utf-8)
 
 (load-theme 'doom-nord-light t) ;; 设置主题颜色
 
@@ -40,5 +52,13 @@
 (dolist (charset '(kana han cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font) charset
                     (font-spec :family "微软雅黑" :size 20)))
+
+;; 当光标在行尾上下移动的时候，始终保持在行尾。 
+(setq track-eol t)
+;; 在Minibufer上显示时间, 24小时制
+(setq display-time-24hr-format 0)
+(display-time-mode 0)
+
+
 
 (provide 'init-basic)

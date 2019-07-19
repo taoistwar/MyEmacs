@@ -11,4 +11,5 @@
 (require 'init-common-lisp)
 (require 'init-company)
 (require 'init-org)
-
+(require 'init-smex)
+(require 'init-helm)

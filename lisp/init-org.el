@@ -19,4 +19,10 @@
 			       ("HAND" . (:foreground "white" :background "#2E8B57" :weight bold))
 			       ("DONE" . (:foreground "white" :background "#3498DB" :weight bold))))
 
+
+
+(set-default-font "Consolas")
+(set-fontset-font "fontset-default" 'chinese-gbk "微软雅黑")
+(setq face-font-rescale-alist '(("宋体" . 1.2) ("微软雅黑" . 1.1)))
+
 (provide 'init-org)
