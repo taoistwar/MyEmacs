@@ -14,3 +14,4 @@
 (require 'init-smex)
 (require 'init-helm)
 (require 'init-keys)
+(require 'init-ido)
