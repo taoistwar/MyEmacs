@@ -10,7 +10,7 @@
 (set-keyboard-coding-system 'utf-8)
 (set-clipboard-coding-system 'utf-8)
 (set-buffer-file-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
+(set-selection-coding-system 'gbk)
 (modify-coding-system-alist 'process "*" 'utf-8)
 
 (load-theme 'doom-nord-light t) ;; 设置主题颜色
@@ -59,6 +59,11 @@
 (setq display-time-24hr-format 0)
 (display-time-mode 0)
 
-
-
+;; 设置垃圾回收，在 Windows 下，emacs25 版本会频繁出发垃圾回收，所以需要设置
+(when (eq system-type 'windows-nt) 
+(setq gc-cons-threshold (* 512 1024 1024)) 
+(setq gc-cons-percentage 0.5) 
+(run-with-idle-timer 5 t #'garbage-collect)
+;; 显示垃圾回收信息，这个可以作为调试用;; 
+(setq garbage-collection-messages t))
 (provide 'init-basic)

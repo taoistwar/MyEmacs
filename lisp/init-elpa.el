@@ -11,7 +11,9 @@
 ;; 初始化过程出错（对应的包文件还没有加载进来）。
 (package-initialize)
 
+;; cl - Common Lisp Extension
 (require 'cl)
+
 ;; Add Packages
 (defvar my/packages '(
                       ;; --- Auto-completion ---
