@@ -11,4 +11,50 @@
 ;; 初始化过程出错（对应的包文件还没有加载进来）。
 (package-initialize)
 
+(require 'cl)
+;; Add Packages
+(defvar my/packages '(
+                      ;; --- Auto-completion ---
+                      company
+                      ;; --- Better Editor ---
+                      slime
+                      ;; --- Major Mode ---
+                      
+                      ;; --- Minor Mode ---
+		      wakatime-mode
+		      
+                      
+                      ;; --- Themes ---
+                      helm
+		      smex
+		      helm-smex
+
+
+		      use-package
+
+		      swiper
+		      popup
+		      pkg-info
+
+		      org-bullets
+		      yasnippet
+		      
+                      ;; solarized-theme
+		      color-theme-solarized
+                      ) "Default packages")
+
+(setq package-selected-packages my/packages)
+
+(defun my/packages-installed-p ()
+  (loop for pkg in my/packages
+        when (not (package-installed-p pkg)) do (return nil)
+        finally (return t)))
+
+(unless (my/packages-installed-p)
+  (message "%s" "Refreshing package database...")
+  (package-refresh-contents)
+  (dolist (pkg my/packages)
+    (when (not (package-installed-p pkg))
+      (package-install pkg))))
+
 (provide 'init-elpa)
